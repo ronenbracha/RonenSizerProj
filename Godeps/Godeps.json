@@ -4,5 +4,13 @@
 	"Packages": [
 		"./..."
 	],
-	"Deps": []
+	"Deps": [
+	{
+			"importpath": "github.com/disintegration/imaging",
+			"repository": "https://github.com/disintegration/imaging",
+			"vcs": "git",
+			"revision": "ac27d1805a555e1754fa177216ee07f4e63c30b5",
+			"branch": "master",
+			"notests": true
+		}]
 }
