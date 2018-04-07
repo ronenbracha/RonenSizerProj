@@ -1,0 +1,8 @@
+{
+	"ImportPath": "github.com/ronenbracha/RonenSizerProj",
+	"GoVersion": "go1.10.1",
+	"Packages": [
+		"./..."
+	],
+	"Deps": []
+}
