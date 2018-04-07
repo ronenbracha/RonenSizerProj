@@ -17,5 +17,5 @@ go get -u https://github.com/ronenbracha/RonenSizerProj
 
 enter application dir "cd src/github.com/ronenbracha/RonenSizerProj"
 
-run as go app:
-go run RonenSizer.go
+run as go app in user root:
+sudo go run RonenSizer.go
