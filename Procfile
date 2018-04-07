@@ -1,1 +1,1 @@
-web: RonenSizerProj.go
+web: RonenSizerProj
