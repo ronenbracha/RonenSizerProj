@@ -6,11 +6,8 @@
 	],
 	"Deps": [
 	{
-			"importpath": "github.com/disintegration/imaging",
-			"repository": "https://github.com/disintegration/imaging",
-			"vcs": "git",
-			"revision": "ac27d1805a555e1754fa177216ee07f4e63c30b5",
-			"branch": "master",
-			"notests": true
-		}]
+            "ImportPath": "github.com/disintegration/imaging",
+            "Rev": "4685da8f7d9ed48a7d6b8982fd966d4fd83b4d2e"
+        }
+]
 }
