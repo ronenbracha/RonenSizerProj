@@ -4,5 +4,9 @@
 	"Packages": [
 		"./..."
 	],
-	"Deps": []
+	"Deps": [
+	{
+	"ImportPath": "github.com/disintegration/imaging"
+	}
+	]]
 }

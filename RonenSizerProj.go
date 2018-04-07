@@ -12,7 +12,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"strconv"
-	"github.com/disintegration/imaging"
+	//"github.com/disintegration/imaging"
 	//"./src/imaging"
 )
 
