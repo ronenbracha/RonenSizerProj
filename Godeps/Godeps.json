@@ -5,8 +5,8 @@
 		"./..."
 	],
 	"Deps": [
-	{
-            "ImportPath": "github.com/disintegration/imaging"
-        }
+	#{
+        #    "ImportPath": "github.com/disintegration/imaging"
+        #}
 ]
 }
