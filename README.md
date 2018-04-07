@@ -11,7 +11,8 @@ black padding is added to the image to reach the required size.
 This small project is using imaging package (https://github.com/disintegration/imaging)
 
 Installation
-set GOPATH env variable to local directory
+
+set GOPATH env variable to local directory (export GOPATH=`pwd`)
 Get RonenSizer by
 go get -u https://github.com/ronenbracha/RonenSizerProj
 
