@@ -12,7 +12,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"strconv"
-	"./src/imaging"
+	#"./src/imaging"
 )
 
 //Parameters:
@@ -92,16 +92,16 @@ func adjustDimensions(inImage image.Image, userWidth int, userHeight int) (int, 
 
 func resizeImage(inputImage image.Image, userWidth int, userHeight int) *image.NRGBA {
 
-	if (userWidth >= inputImage.Bounds().Dx() && userHeight >= inputImage.Bounds().Dy()) {
+	#if (userWidth >= inputImage.Bounds().Dx() && userHeight >= inputImage.Bounds().Dy()) {
 		//pad orig image
 		return padImage(inputImage, image.Rect(0, 0, userWidth, userHeight))
-	} else {
+	#} else {
 		//Create inner sized image
-		adjWidth, adjHeight := adjustDimensions(inputImage, userWidth, userHeight)
-		log.Printf("ADJ   %d  %d  ", adjWidth, adjHeight)
-		sizedImage := imaging.Resize(inputImage, adjWidth, adjHeight, imaging.Lanczos)
-		return padImage(sizedImage, image.Rect(0, 0, userWidth, userHeight))
-	}
+	#	adjWidth, adjHeight := adjustDimensions(inputImage, userWidth, userHeight)
+	#	log.Printf("ADJ   %d  %d  ", adjWidth, adjHeight)
+	#	sizedImage := imaging.Resize(inputImage, adjWidth, adjHeight, imaging.Lanczos)
+	#	return padImage(sizedImage, image.Rect(0, 0, userWidth, userHeight))
+	#}
 }
 
 func padImage(inputImage image.Image, dest image.Rectangle) *image.NRGBA {
