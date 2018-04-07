@@ -16,7 +16,7 @@ import (
 )
 
 //Parameters:
-var PORT = "80"
+var PORT = "8080"
 var URL = "url"
 var WIDTH = "width"
 var HEIGHT = "height"
