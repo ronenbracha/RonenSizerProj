@@ -6,8 +6,7 @@
 	],
 	"Deps": [
 	{
-            "ImportPath": "github.com/disintegration/imaging",
-            "Rev": "4685da8f7d9ed48a7d6b8982fd966d4fd83b4d2e"
+            "ImportPath": "github.com/disintegration/imaging"
         }
 ]
 }
