@@ -15,5 +15,7 @@ set GOPATH env variable to local directory
 Get RonenSizer by
 go get -u https://github.com/ronenbracha/RonenSizerProj
 
+enter application dir "cd src/github.com/ronenbracha/RonenSizerProj"
+
 run as go app:
 go run RonenSizer.go
