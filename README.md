@@ -12,8 +12,15 @@ This small project is using imaging package (https://github.com/disintegration/i
 
 Installation
 
+install imaging package
+
+go get -u github.com/disintegration/imaging
+
+
 set GOPATH env variable to local directory (export GOPATH=`pwd`)
+
 Get RonenSizer:
+
 go get -u github.com/ronenbracha/RonenSizerProj
 
 enter application dir "cd src/github.com/ronenbracha/RonenSizerProj"
