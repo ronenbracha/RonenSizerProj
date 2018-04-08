@@ -19,7 +19,7 @@ install imaging package
 go get -u github.com/disintegration/imaging
 
 
-set GOPATH env variable to local directory (export GOPATH="/`pwd"/`)
+set GOPATH env variable to local directory (export GOPATH="\`pwd"\`)
 
 Get RonenSizer:
 
