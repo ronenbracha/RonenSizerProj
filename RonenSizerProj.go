@@ -21,6 +21,7 @@ var PORT = "80"
 var URL = "url"
 var WIDTH = "width"
 var HEIGHT = "height"
+var MAX_NUMBER = 3000
 
 func Log(handler http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -51,7 +52,7 @@ func sizerHandler(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 	//Original to file
-	saveImageToFile(origImage)
+	//saveImageToFile(origImage)
 
 	//Get requested
 	userWidth, _ := strconv.Atoi(paramValues.Get(WIDTH))
@@ -60,7 +61,7 @@ func sizerHandler(res http.ResponseWriter, req *http.Request) {
 	resizedImage := resizeImage(origImage, userWidth, userHeight)
 
 	//Resized to file
-	saveImageToFile(resizedImage)
+	//saveImageToFile(resizedImage)
 
 	//Set jpeg into response
 	buffer := new(bytes.Buffer)
@@ -84,14 +85,23 @@ func adjustDimensions(inImage image.Image, userWidth int, userHeight int) (int, 
 	ratio := float64(inImage.Bounds().Dx()) / float64(inImage.Bounds().Dy())
 
 	//Adjust best size by ration
-	if (int(float64(userHeight)*ratio) > userWidth) { //RONEN???
+	if (int(float64(userHeight)*ratio) > userWidth) {
 		return userWidth, int(float64(userWidth) / ratio)
 	} else {
-		return int(float64(userHeight) * ratio), userHeight //RONEN???
+		return int(float64(userHeight) * ratio), userHeight
 	}
 }
 
 func resizeImage(inputImage image.Image, userWidth int, userHeight int) *image.NRGBA {
+
+	//0 - original size
+	if userWidth == 0 {
+		userWidth = inputImage.Bounds().Dx()
+	}
+
+	if userHeight == 0 {
+		userHeight = inputImage.Bounds().Dy()
+	}
 
 	if (userWidth >= inputImage.Bounds().Dx() && userHeight >= inputImage.Bounds().Dy()) {
 		//pad orig image
@@ -176,19 +186,25 @@ func loadImage(toTest string) (image.Image, int, string) {
 
 func validateParams(toTest url.Values) (res int, err string) {
 	if toTest.Get(URL) == "" {
-		return http.StatusBadRequest, URL + "parameter is required"
+		return http.StatusBadRequest, URL + " parameter is required"
 	}
 	if toTest.Get(WIDTH) == "" {
 		return http.StatusBadRequest, WIDTH + " parameter is required"
 	}
 	if _, err := strconv.Atoi(toTest.Get(WIDTH)); err != nil {
-		return http.StatusBadRequest, WIDTH + "  parameter must be a number"
+		return http.StatusBadRequest, WIDTH + " parameter must be a number"
+	}
+	if size, _ := strconv.Atoi(toTest.Get(WIDTH)); size < 0 || size > MAX_NUMBER {
+		return http.StatusBadRequest, WIDTH + " parameter not in range 0-" + strconv.Itoa(MAX_NUMBER)
 	}
 	if toTest.Get(HEIGHT) == "" {
 		return http.StatusBadRequest, HEIGHT + " parameter is required"
 	}
 	if _, err := strconv.Atoi(toTest.Get(HEIGHT)); err != nil {
 		return http.StatusBadRequest, HEIGHT + " parameter must be a number"
+	}
+	if size, _ := strconv.Atoi(toTest.Get(HEIGHT)); size < 0 || size > MAX_NUMBER {
+		return http.StatusBadRequest, HEIGHT + " parameter not in range 0-" + strconv.Itoa(MAX_NUMBER)
 	}
 	return http.StatusOK, ""
 }
