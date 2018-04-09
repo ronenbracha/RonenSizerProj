@@ -14,14 +14,15 @@ Installation:
 
 Cleaning out your GOPATH variable (export GOPATH="")
 
-install imaging package
+install imaging package:
 
 go get -u github.com/disintegration/imaging
 
+This will install imaging package to your default go lib location
+
+install RonenSizerProj:
 
 set GOPATH env variable to local directory (export GOPATH=\`pwd\`)
-
-Get RonenSizer:
 
 go get -u github.com/ronenbracha/RonenSizerProj
 
